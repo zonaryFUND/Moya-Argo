@@ -8,6 +8,7 @@
 
 import Foundation
 import Argo
+import Runes
 import Curry
 
 class TestModelClass: Decodable {
@@ -18,7 +19,7 @@ class TestModelClass: Decodable {
         self.id = id
     }
     
-    static func decode(json: JSON) -> Decoded<TestModelClass> {
+    static func decode(_ json: JSON) -> Decoded<TestModelClass> {
         return curry(self.init)
             <^> json <| "id"
     }
